@@ -81,6 +81,12 @@ namespace Shlomi
 
         }
 
+
+        public void IsPointOnPie(int x, int y)
+        {
+
+        }
+
         private void InitializeTimer()
         {
             timer = new Timer();

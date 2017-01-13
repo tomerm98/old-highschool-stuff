@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
+
 
 namespace Shlomi
 {
@@ -27,8 +27,8 @@ namespace Shlomi
         {
             timer1.Interval = animationTickRate;
             graphics = CreateGraphics();
-            Rectangle rect = new Rectangle(100, 100, 500, 500);
-            fp = new FilledPie(rect, 0, 90, animationTickRate);
+            Rectangle rect = new Rectangle(100, 100, 100, 100);
+            fp = new FilledPie(rect, 90, 90, animationTickRate);
            
 
         }
@@ -43,15 +43,7 @@ namespace Shlomi
         }
         
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-           
-        }
+       
 
         private void timer1_Tick(object sender, EventArgs e)
         {
