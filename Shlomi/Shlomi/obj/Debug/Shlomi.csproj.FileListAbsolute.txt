@@ -1,0 +1,9 @@
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Shlomi\Shlomi\bin\Debug\Shlomi.exe.config
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Shlomi\Shlomi\bin\Debug\Shlomi.exe
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Shlomi\Shlomi\bin\Debug\Shlomi.pdb
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Shlomi\Shlomi\obj\Debug\Shlomi.csprojResolveAssemblyReference.cache
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Shlomi\Shlomi\obj\Debug\Shlomi.Form1.resources
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Shlomi\Shlomi\obj\Debug\Shlomi.Properties.Resources.resources
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Shlomi\Shlomi\obj\Debug\Shlomi.csproj.GenerateResource.Cache
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Shlomi\Shlomi\obj\Debug\Shlomi.exe
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Shlomi\Shlomi\obj\Debug\Shlomi.pdb
