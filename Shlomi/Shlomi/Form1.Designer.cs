@@ -61,6 +61,11 @@
             0,
             0,
             0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            -2147483648});
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown2.TabIndex = 2;
@@ -117,7 +122,6 @@
             // 
             // timer2
             // 
-            this.timer2.Enabled = true;
             this.timer2.Interval = 30;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 

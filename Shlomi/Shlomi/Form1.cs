@@ -30,7 +30,6 @@ namespace Shlomi
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = CreateGraphics();
-            Pen blackPen = new Pen(Color.Black, 3);
             SolidBrush brush = new SolidBrush(Color.Red);
             int width = (int)numericUpDown3.Value;
             int height = (int)numericUpDown4.Value;
