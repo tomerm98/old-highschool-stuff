@@ -21,7 +21,7 @@ namespace Shlomi
         public FilledPie()
         {
             Brush = new SolidBrush(Color.Black);
-            Rect = new Rectangle();
+            Rect = new Rectangle(0,0,1,1);
             StartAngle = 0F;
             SweepAngle = 0F;
             AnimationTickRate = 30;
@@ -84,22 +84,27 @@ namespace Shlomi
 
         public bool IsPointOnPie(int x, int y)
         {
-            //if point is on elipse
-            if (((4*Math.Pow(x + rect.X,2)) / (rect.Width * rect.Width)) +
-                ((4 * Math.Pow(y + rect.Y, 2)) / (rect.Height * rect.Height)) <=1)
+            
+            //this is a mathematical formula that I barely understands. Credit goes to Alon Heller.
+                    
+            int centerWidth = rect.X + (rect.Width / 2);
+            int centerHeight = rect.Y + (rect.Height / 2);
+  
+            if (((4*Math.Pow(x - centerWidth,2)) / (rect.Width * rect.Width)) +
+                ((4 * Math.Pow(y -centerHeight, 2)) / (rect.Height * rect.Height)) <=1)
             {
-                double startRad = DegreeToRadian(startAngle);
-                double sweepRad = DegreeToRadian(sweepAngle + startAngle); //next formula works this way
-                //if point is on the slice
-                if (startRad <= Math.Atan2(x, y) && Math.Atan2(x, y) <= sweepRad)
+               
+                double calcedValue =RadiansToDegrees(Math.Atan2(y - centerHeight, x - centerWidth)) - startAngle;
+                if (calcedValue < 0) calcedValue += 360;
+                if (calcedValue < sweepAngle)
                     return true;
             }
 
             return false;
         }
-        private double DegreeToRadian(double angle)
+        private double RadiansToDegrees(double radians)
         {
-            return Math.PI * angle / 180.0;
+            return radians * (180.0 / Math.PI);
         }
 
 
