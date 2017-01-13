@@ -10,10 +10,10 @@ namespace Shlomi
 {
     class FilledPie
     {
-        private int widthPerTick;
-        private int widthRemainder;
-        private int heightPerTick;
-        private int heightRemainder;
+        private float widthPerTick;
+        private float heightPerTick;
+        private float currentWidthToAdd;
+        private float currentHeightToAdd;
         private int numOfTicksNeeded;
         private Timer timer;
 
@@ -28,6 +28,16 @@ namespace Shlomi
             InitializeTimer();
 
         }
+        public FilledPie(Rectangle rect, float startAngle, float sweepAngle, int animationTickRate)
+        {
+
+            Brush = new SolidBrush(Color.Black);
+            Rect = rect;
+            StartAngle = startAngle;
+            SweepAngle = sweepAngle;
+            AnimationTickRate = animationTickRate;
+            InitializeTimer();
+        }
 
         public FilledPie(Brush brush, Rectangle rect, float startAngle, float sweepAngle, int animationTickRate)
         {
@@ -40,18 +50,35 @@ namespace Shlomi
         }
 
 
-        public void AnimateSize(int percentOfOldSize, int durationMS)
+        public void AnimateSize(float percentOfOldSize, int durationMS)
         {
+
+            if (percentOfOldSize == 100) return;
+            float widthNeeded = 0;
+            float heightNeeded = 0;
+            currentWidthToAdd = 0;
+            currentHeightToAdd = 0;
+            
+            if (percentOfOldSize > 100)
+            {
+                widthNeeded = Rect.Width * (percentOfOldSize / 100) - rect.Width;
+                heightNeeded = Rect.Height * (percentOfOldSize / 100) - rect.Height;
+            }
+            if (percentOfOldSize < 100)
+            {
+                widthNeeded = Rect.Width / (100 / percentOfOldSize) - rect.Width;
+                heightNeeded = Rect.Height / (100 / percentOfOldSize) - rect.Height;
+            }
+
+
             numOfTicksNeeded = durationMS / AnimationTickRate;
-            int widthNeeded = Rect.Width * (percentOfOldSize / 100) - rect.Width;
-            int heightNeeded = Rect.Height * (percentOfOldSize / 100) - rect.Height;
+
             widthPerTick = widthNeeded / numOfTicksNeeded;
-            widthRemainder = widthNeeded % numOfTicksNeeded;
             heightPerTick = heightNeeded / numOfTicksNeeded;
-            heightRemainder = heightNeeded % numOfTicksNeeded;
-            
+           
+
             timer.Start();
-            
+
         }
 
         private void InitializeTimer()
@@ -64,20 +91,30 @@ namespace Shlomi
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            while (numOfTicksNeeded >0)
+            if (numOfTicksNeeded > 0)
             {
-                rect.Width += widthPerTick;
-                rect.Height += heightPerTick;
-
-                if (numOfTicksNeeded == 1)
+                currentWidthToAdd += widthPerTick;
+                currentHeightToAdd += heightPerTick;
+                if (currentWidthToAdd >= 1 || currentWidthToAdd <= -1)
                 {
-                    rect.Width += widthRemainder;
-                    rect.Height += heightRemainder;
+                    rect.Width += (int)currentWidthToAdd;
+                    currentWidthToAdd = currentWidthToAdd % 1;
                 }
+
+                if (currentHeightToAdd >= 1 || currentHeightToAdd <= -1)
+                {
+                    rect.Height += (int)currentHeightToAdd;
+                    currentHeightToAdd = currentHeightToAdd % 1;
+                }
+
+
+
+
                 numOfTicksNeeded--;
             }
-            timer.Stop();
-            
+            else
+                timer.Stop();
+
         }
 
        

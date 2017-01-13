@@ -14,6 +14,9 @@ namespace Shlomi
     public partial class Form1 : Form
     {
         static bool up = true;
+        public const int animationTickRate = 30;
+        FilledPie fp;
+        Graphics graphics;
         public Form1()
         {
             InitializeComponent();
@@ -22,24 +25,22 @@ namespace Shlomi
        
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            timer1.Interval = animationTickRate;
+            graphics = CreateGraphics();
+            Rectangle rect = new Rectangle(100, 100, 500, 500);
+            fp = new FilledPie(rect, 0, 90, animationTickRate);
+           
+
         }
 
       
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            Graphics graphics = CreateGraphics();
-            SolidBrush brush = new SolidBrush(Color.Red);
-            int width = (int)numericUpDown3.Value;
-            int height = (int)numericUpDown4.Value;
-            Rectangle rect = new Rectangle(100, 100, width, height);
-            float startAngle = (float)numericUpDown1.Value;
-            float sweepAngle = (float)numericUpDown2.Value;
-            graphics.FillPie(brush, rect, startAngle, sweepAngle);
-            
-        }
 
+            graphics.FillPie(fp.Brush, fp.Rect, fp.StartAngle, fp.SweepAngle);
+
+        }
         
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
@@ -55,17 +56,16 @@ namespace Shlomi
         private void timer1_Tick(object sender, EventArgs e)
         {
             Invalidate();
+            numericUpDown1.Value = (decimal) fp.StartAngle;
+            numericUpDown2.Value = (decimal)fp.SweepAngle;
+            numericUpDown3.Value = fp.Rect.Height;
+            numericUpDown4.Value = fp.Rect.Width;
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (numericUpDown2.Value == 0)
-                up = true;
-            if (numericUpDown2.Value == 360)
-                up = false;
-            if (up)
-                numericUpDown2.Value++;
-            else numericUpDown2.Value--;
+            fp.AnimateSize(50, 1000);
+            
         }
     }
 }
