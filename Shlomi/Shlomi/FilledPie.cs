@@ -122,16 +122,25 @@ namespace Shlomi
             {
                 currentWidthToAdd += widthPerTick;
                 currentHeightToAdd += heightPerTick;
-                if (currentWidthToAdd >= 1 || currentWidthToAdd <= -1)
+                if (currentWidthToAdd >= 2 || currentWidthToAdd <= -2)
                 {
-                    rect.Width += (int)currentWidthToAdd;
-                    currentWidthToAdd = currentWidthToAdd % 1;
+                    rect.Width += ((int)currentWidthToAdd);
+                    rect.X -= ((int)currentWidthToAdd) / 2;
+                    if (((int)currentWidthToAdd) % 2 == 0)
+                        currentWidthToAdd = currentWidthToAdd % 1;
+                    else
+                        currentWidthToAdd = currentWidthToAdd % 1 + 1;
                 }
 
-                if (currentHeightToAdd >= 1 || currentHeightToAdd <= -1)
+                if (currentHeightToAdd >= 2 || currentHeightToAdd <= -2)
                 {
-                    rect.Height += (int)currentHeightToAdd;
-                    currentHeightToAdd = currentHeightToAdd % 1;
+                    rect.Height += ((int)currentHeightToAdd);
+                    rect.Y -= ((int)currentHeightToAdd) / 2;
+
+                    if (((int)currentHeightToAdd) % 2 == 0)
+                        currentHeightToAdd = currentHeightToAdd % 1;
+                    else
+                        currentHeightToAdd = currentHeightToAdd % 1 + 1;
                 }
 
 
