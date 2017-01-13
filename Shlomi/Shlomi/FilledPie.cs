@@ -82,10 +82,26 @@ namespace Shlomi
         }
 
 
-        public void IsPointOnPie(int x, int y)
+        public bool IsPointOnPie(int x, int y)
         {
+            //if point is on elipse
+            if (((4*Math.Pow(x + rect.X,2)) / (rect.Width * rect.Width)) +
+                ((4 * Math.Pow(y + rect.Y, 2)) / (rect.Height * rect.Height)) <=1)
+            {
+                double startRad = DegreeToRadian(startAngle);
+                double sweepRad = DegreeToRadian(sweepAngle + startAngle); //next formula works this way
+                //if point is on the slice
+                if (startRad <= Math.Atan2(x, y) && Math.Atan2(x, y) <= sweepRad)
+                    return true;
+            }
 
+            return false;
         }
+        private double DegreeToRadian(double angle)
+        {
+            return Math.PI * angle / 180.0;
+        }
+
 
         private void InitializeTimer()
         {
