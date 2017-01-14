@@ -10,22 +10,45 @@ namespace Shlomi
 {
     class FilledPie
     {
-        private float widthPerTick;
-        private float heightPerTick;
-        private float currentWidthToAdd;
-        private float currentHeightToAdd;
-        private int numOfTicksNeeded;
-        private Timer timer;
+        
 
+      
+      
+
+       
+
+
+       
+
+        public int Width
+        {
+            get { return rect.Width; }
+            set { rect.Width = value; }
+        }
+        public int Height
+        {
+            get { return rect.Height; }
+            set { rect.Height = value; }
+        }
+        public int X
+        {
+            get { return rect.X; }
+            set { rect.X = value; }
+        }
+        public int Y
+        {
+            get { return rect.Y; }
+            set { rect.Y = value; }
+        }
 
         public FilledPie()
         {
             Brush = new SolidBrush(Color.Black);
-            Rect = new Rectangle(0,0,1,1);
+            Rect = new Rectangle(0, 0, 1, 1);
             StartAngle = 0F;
             SweepAngle = 0F;
             AnimationTickRate = 30;
-            InitializeTimer();
+         
 
         }
         public FilledPie(Rectangle rect, float startAngle, float sweepAngle, int animationTickRate)
@@ -36,7 +59,7 @@ namespace Shlomi
             StartAngle = startAngle;
             SweepAngle = sweepAngle;
             AnimationTickRate = animationTickRate;
-            InitializeTimer();
+           
         }
 
         public FilledPie(Brush brush, Rectangle rect, float startAngle, float sweepAngle, int animationTickRate)
@@ -46,7 +69,7 @@ namespace Shlomi
             StartAngle = startAngle;
             SweepAngle = sweepAngle;
             AnimationTickRate = animationTickRate;
-            InitializeTimer();
+           
         }
 
 
@@ -58,7 +81,7 @@ namespace Shlomi
             float heightNeeded = 0;
             currentWidthToAdd = 0;
             currentHeightToAdd = 0;
-            
+
             if (percentOfOldSize > 100)
             {
                 widthNeeded = Rect.Width * (percentOfOldSize / 100) - rect.Width;
@@ -75,26 +98,26 @@ namespace Shlomi
 
             widthPerTick = widthNeeded / numOfTicksNeeded;
             heightPerTick = heightNeeded / numOfTicksNeeded;
-           
 
-            timer.Start();
+
+          //  timer.Start();
 
         }
 
 
         public bool IsPointOnPie(int x, int y)
         {
-            
+
             //this is a mathematical formula that I barely understands. Credit goes to Alon Heller.
-                    
+
             int centerWidth = rect.X + (rect.Width / 2);
             int centerHeight = rect.Y + (rect.Height / 2);
-  
-            if (((4*Math.Pow(x - centerWidth,2)) / (rect.Width * rect.Width)) +
-                ((4 * Math.Pow(y -centerHeight, 2)) / (rect.Height * rect.Height)) <=1)
+
+            if (((4 * Math.Pow(x - centerWidth, 2)) / (rect.Width * rect.Width)) +
+                ((4 * Math.Pow(y - centerHeight, 2)) / (rect.Height * rect.Height)) <= 1)
             {
-               
-                double calcedValue =RadiansToDegrees(Math.Atan2(y - centerHeight, x - centerWidth)) - startAngle;
+
+                double calcedValue = RadiansToDegrees(Math.Atan2(y - centerHeight, x - centerWidth)) - startAngle;
                 if (calcedValue < 0) calcedValue += 360;
                 if (calcedValue < sweepAngle)
                     return true;
@@ -108,52 +131,8 @@ namespace Shlomi
         }
 
 
-        private void InitializeTimer()
-        {
-            timer = new Timer();
-            timer.Interval = AnimationTickRate;
-            timer.Enabled = false;
-            timer.Tick += Timer_Tick;
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            if (numOfTicksNeeded > 0)
-            {
-                currentWidthToAdd += widthPerTick;
-                currentHeightToAdd += heightPerTick;
-                if (currentWidthToAdd >= 2 || currentWidthToAdd <= -2)
-                {
-                    rect.Width += ((int)currentWidthToAdd);
-                    rect.X -= ((int)currentWidthToAdd) / 2;
-                    if (((int)currentWidthToAdd) % 2 == 0)
-                        currentWidthToAdd = currentWidthToAdd % 1;
-                    else
-                        currentWidthToAdd = currentWidthToAdd % 1 + 1;
-                }
-
-                if (currentHeightToAdd >= 2 || currentHeightToAdd <= -2)
-                {
-                    rect.Height += ((int)currentHeightToAdd);
-                    rect.Y -= ((int)currentHeightToAdd) / 2;
-
-                    if (((int)currentHeightToAdd) % 2 == 0)
-                        currentHeightToAdd = currentHeightToAdd % 1;
-                    else
-                        currentHeightToAdd = currentHeightToAdd % 1 + 1;
-                }
 
 
-
-
-                numOfTicksNeeded--;
-            }
-            else
-                timer.Stop();
-
-        }
-
-       
         private Brush brush;
         public Brush Brush
         {
@@ -203,5 +182,42 @@ namespace Shlomi
             get { return animationTickRate; }
             set { animationTickRate = value; }
         }
+
+        private float widthPerTick;
+        public float WidthPerTick
+        {
+            get { return widthPerTick; }
+            set { widthPerTick = value; }
+        }
+
+        private float heightPerTick;
+        public float HeightPerTick
+        {
+            get { return heightPerTick; }
+            set { heightPerTick = value; }
+        }
+
+        private float currentWidthToAdd;
+        public float CurrentWidthToAdd
+        {
+            get { return currentWidthToAdd; }
+            set { currentWidthToAdd = value; }
+        }
+
+        private float currentHeightToAdd;
+        public float CurrentHeightToAdd
+        {
+            get { return currentHeightToAdd; }
+            set { currentHeightToAdd = value; }
+        }
+
+        private int numOfTicksNeeded;
+        public int NumOfTicksNeeded
+        {
+            get { return numOfTicksNeeded; }
+            set { numOfTicksNeeded = value; }
+        }
     }
+
+
 }

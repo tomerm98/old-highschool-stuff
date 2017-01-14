@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tmrMainAnimation = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // timer1
+            // tmrMainAnimation
             // 
-            this.timer1.Interval = 30;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.tmrMainAnimation.Interval = 30;
+            this.tmrMainAnimation.Tick += new System.EventHandler(this.tmrMainAnimation_Tick);
             // 
             // Form1
             // 
@@ -56,7 +56,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer tmrMainAnimation;
     }
 }
 
