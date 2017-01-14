@@ -6,26 +6,30 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+
 
 
 namespace Shlomi
 {
     public partial class Form1 : Form
     {
-        const int numOfPies = 8;
+        const int numOfPies = 6;
         const int animationTickRate = 30;
-        const int animationDuration = 1000;
-        const float percentOfRectSizeFromScreenHeight = 25F;
-        const float percentOfOldSizeForAnimation = 150F;
+        const int animationDurationMS = 500;
+        const float percentOfRectSizeFromScreenHeight = 30F;
+        const float percentOfOldSizeForAnimation = 170F;
+        
         int screenCenterX;
         int screenCenterY;
         int rectWidth;
         int rectHeight;
+        bool animating;
+        System.Timers.Timer tmrAnimationStarter;
 
 
-        FilledPie fp;
-        Graphics graphics;
+
         Rectangle[] rects;
         FilledPie[] pies;
 
@@ -39,10 +43,12 @@ namespace Shlomi
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            // MessageBox.Show((Math.Atan2(15,-22)) + "");
-
-            graphics = CreateGraphics();
-            fp = new FilledPie(new Rectangle(100,100,100,100),-90,90,animationTickRate);
+           
+            
+            animating = false;
+            tmrAnimationStarter = new System.Timers.Timer();
+            tmrAnimationStarter.AutoReset = false;
+            tmrAnimationStarter.Elapsed += TmrAnimationStarter_Elapsed; 
             InitializeProperties();
             SolidBrush[] brushes = {
                 new SolidBrush(Color.Black),
@@ -53,6 +59,7 @@ namespace Shlomi
                 new SolidBrush(Color.Pink),
                 new SolidBrush(Color.Purple),
                 new SolidBrush(Color.Yellow)
+                
 
             };
            rects = new Rectangle[numOfPies];
@@ -64,17 +71,19 @@ namespace Shlomi
                                          rectWidth, rectHeight);
                 sweepAngle = 360 / numOfPies;
                 startAngle = sweepAngle * i;
-                if (startAngle > 180)
-                    startAngle = 0 - (startAngle - 180);
+            
                 pies[i] = new FilledPie(brushes[i],rects[i], startAngle, sweepAngle, animationTickRate);
             }
 
 
-            timer1.Interval = animationTickRate;
-            timer1.Start();
+            tmrMainAnimation.Interval = animationTickRate;
+            tmrMainAnimation.Start();
 
 
         }
+
+        
+
         private void InitializeProperties()
         {
             screenCenterX = ClientSize.Width / 2;
@@ -88,38 +97,113 @@ namespace Shlomi
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             foreach (FilledPie fp in pies)
-                graphics.FillPie(fp.Brush, fp.Rect, fp.StartAngle, fp.SweepAngle);
-
-         }
-
-
-
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Invalidate();
-
+                e.Graphics.FillPie(fp.Brush, fp.Rect, fp.StartAngle, fp.SweepAngle);
+           
         }
 
-
+        int clickedPieIndex;
+        int currentPieIndex;
+        
         private void Form1_Click(object sender, EventArgs e)
         {
-
-             Point curserLocationInForm = PointToClient(Cursor.Position);
-            foreach (FilledPie fp in pies)
+            if (!animating)
             {
-                if (fp.IsPointOnPie(curserLocationInForm.X, curserLocationInForm.Y))
+                Point curserLocationInForm = PointToClient(Cursor.Position);
+                for (clickedPieIndex = 0; clickedPieIndex < pies.Length; clickedPieIndex++)
                 {
-                    fp.AnimateSize(percentOfOldSizeForAnimation, animationDuration);
-                    break;
+                    if (pies[clickedPieIndex].IsPointOnPie(curserLocationInForm.X, curserLocationInForm.Y))
+                    {
+                        pies[clickedPieIndex].AnimateSize(percentOfOldSizeForAnimation, animationDurationMS);
+                        animating = true;
+                        currentPieIndex = clickedPieIndex + 1;
+                        tmrAnimationStarter.Interval = animationDurationMS;
+                        tmrAnimationStarter.Start();
+                        break;
+                    }
                 }
+                
             }
+            
            
+        }
+        private void TmrAnimationStarter_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            tmrAnimationStarter.Interval = animationDurationMS / 3;
+            if (currentPieIndex > pies.Length - 1)
+                currentPieIndex = 0;
+            if (currentPieIndex != clickedPieIndex)
+            {
+                
+
+                pies[currentPieIndex].AnimateSize(percentOfOldSizeForAnimation, animationDurationMS);
+                currentPieIndex++;
+                tmrAnimationStarter.Start();
+            }
+            else
+               animating = false;
+            
+
+
+
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
+           
+            screenCenterX = ClientSize.Width / 2;
+            screenCenterY = ClientSize.Height / 2;
+            foreach (FilledPie fp in pies)
+            {
+               
+                fp.X = screenCenterX - fp.Width /2;
+                fp.Y = screenCenterY - fp.Height / 2;
+            }
+            
+        }
 
+        private void tmrMainAnimation_Tick(object sender, EventArgs e)
+        {
+            foreach (FilledPie fp in pies)
+            {
+                if (fp.NumOfTicksNeeded > 0)
+                {
+                    fp.CurrentWidthToAdd += fp.WidthPerTick;
+                    fp.CurrentHeightToAdd += fp.HeightPerTick;
+                    if (fp.CurrentWidthToAdd >= 2 || fp.CurrentWidthToAdd <= -2)
+                    {
+                        fp.Width += ((int)fp.CurrentWidthToAdd);
+                        fp.X -= ((int)fp.CurrentWidthToAdd) / 2;
+                        if (((int)fp.CurrentWidthToAdd) % 2 == 0)
+
+                            fp.CurrentWidthToAdd = fp.CurrentWidthToAdd % 1;
+                        else
+                        {
+                            fp.Width--;
+                            fp.CurrentWidthToAdd = fp.CurrentWidthToAdd % 1 + 1;
+                        }
+                    }
+
+                    if (fp.CurrentHeightToAdd >= 2 || fp.CurrentHeightToAdd <= -2)
+                    {
+                        fp.Height += ((int)fp.CurrentHeightToAdd);
+                        fp.Y -= ((int)fp.CurrentHeightToAdd) / 2;
+
+                        if (((int)fp.CurrentHeightToAdd) % 2 == 0)
+                            fp.CurrentHeightToAdd = fp.CurrentHeightToAdd % 1;
+                        else
+                        {
+                            fp.Height--;
+                            fp.CurrentHeightToAdd = fp.CurrentHeightToAdd % 1 + 1;
+                        }
+                    }
+
+
+
+
+                    fp.NumOfTicksNeeded--;
+                }
+            }
+            Invalidate();
         }
     }
 }
