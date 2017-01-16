@@ -1,0 +1,7 @@
+C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Database1.mdf
+C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Database1_log.ldf
+C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Trump's Console Helper.exe.config
+C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Trump's Console Helper.exe
+C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Trump's Console Helper.pdb
+C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\obj\x86\Debug\Trump's Console Helper.exe
+C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\obj\x86\Debug\Trump's Console Helper.pdb
