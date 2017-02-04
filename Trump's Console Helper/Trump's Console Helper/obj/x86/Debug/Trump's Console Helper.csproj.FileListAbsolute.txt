@@ -3,3 +3,11 @@ C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console
 C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Trump's Console Helper.pdb
 C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\obj\x86\Debug\Trump's Console Helper.exe
 C:\Users\user1\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\obj\x86\Debug\Trump's Console Helper.pdb
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Database.mdf
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Database_log.ldf
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\obj\x86\Debug\Trump's Console Helper.csprojResolveAssemblyReference.cache
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Trumps Console Helper.exe.config
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Trumps Console Helper.exe
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\bin\Debug\Trumps Console Helper.pdb
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\obj\x86\Debug\Trumps Console Helper.exe
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\Trump's Console Helper\Trump's Console Helper\obj\x86\Debug\Trumps Console Helper.pdb

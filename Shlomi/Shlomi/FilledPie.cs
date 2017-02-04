@@ -41,6 +41,8 @@ namespace Shlomi
             set { rect.Y = value; }
         }
 
+
+
         public FilledPie()
         {
             Brush = new SolidBrush(Color.Black);
@@ -48,31 +50,23 @@ namespace Shlomi
             StartAngle = 0F;
             SweepAngle = 0F;
             AnimationTickRate = 30;
-         
+            Text = "";
 
         }
-        public FilledPie(Rectangle rect, float startAngle, float sweepAngle, int animationTickRate)
-        {
+       
 
-            Brush = new SolidBrush(Color.Black);
-            Rect = rect;
-            StartAngle = startAngle;
-            SweepAngle = sweepAngle;
-            AnimationTickRate = animationTickRate;
-           
-        }
-
-        public FilledPie(Brush brush, Rectangle rect, float startAngle, float sweepAngle, int animationTickRate)
+        public FilledPie(Brush brush, Rectangle rect, float startAngle, float sweepAngle, int animationTickRate, string text)
         {
             Brush = brush;
             Rect = rect;
             StartAngle = startAngle;
             SweepAngle = sweepAngle;
             AnimationTickRate = animationTickRate;
-           
+            Text = text;
+
         }
-
-
+        
+        
         public void AnimateSize(float percentOfOldSize, int durationMS)
         {
 
@@ -110,8 +104,8 @@ namespace Shlomi
 
             //this is a mathematical formula that I barely understands. Credit goes to Alon Heller.
 
-            int centerWidth = rect.X + (rect.Width / 2);
-            int centerHeight = rect.Y + (rect.Height / 2);
+            int centerWidth = X + (Width / 2);
+            int centerHeight = Y + (Height / 2);
 
             if (((4 * Math.Pow(x - centerWidth, 2)) / (rect.Width * rect.Width)) +
                 ((4 * Math.Pow(y - centerHeight, 2)) / (rect.Height * rect.Height)) <= 1)
@@ -125,11 +119,45 @@ namespace Shlomi
 
             return false;
         }
+        public PointF GetCenter()
+        {
+            //another mathematical formula by Alon Heller
+            double startRad = DegreeToRadian(startAngle);
+            double sweepRad = DegreeToRadian(sweepAngle);
+            int centerWidth = X + (Width / 2);
+            int centerHeight = Y + (Height / 2);
+            double mx = Math.Cos(startRad + sweepRad / 2);
+            double my = Math.Sin(startRad + sweepRad / 2);
+            double size = Math.Sqrt((4 * mx * mx) / (Width * Width)
+                                    + (4 * my * my) / (Height * Height));
+            mx = mx / (2 * size);
+            my = my / (2 * size);
+            
+            return new PointF((float)mx + centerWidth, (float)my + centerHeight);
+
+        }
         private double RadiansToDegrees(double radians)
         {
             return radians * (180.0 / Math.PI);
         }
+        private double DegreeToRadian(double degrees)
+        {
+            return Math.PI * degrees / 180.0;
+        }
+        public override string ToString()
+        {
 
+
+            return String.Format("Width: {0} \n" +
+                                 "Height: {1} \n" +
+                                  "X: {2} \n" +
+                                  "Y: {3} \n" +
+                                  "Start Angle: {4} \n" +
+                                  "Sweep Angle: {5} \n" +
+                                  "Center X: {6} \n" +
+                                  "Center Y: {7} \n",
+                                  Width, Height, X, Y, startAngle, sweepAngle, GetCenter().X, GetCenter().Y);
+        }
 
 
 
@@ -217,6 +245,22 @@ namespace Shlomi
             get { return numOfTicksNeeded; }
             set { numOfTicksNeeded = value; }
         }
+
+        private string text;
+
+        public string Text
+        {
+            get { return text; }
+            set { text = value; }
+        }
+            
+
+
+
+
+
+
+
     }
 
 

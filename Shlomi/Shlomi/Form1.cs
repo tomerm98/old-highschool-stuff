@@ -18,18 +18,19 @@ namespace Shlomi
         const int numOfPies = 6;
         const int animationTickRate = 30;
         const int animationDurationMS = 500;
-        const float percentOfRectSizeFromScreenHeight = 30F;
-        const float percentOfOldSizeForAnimation = 170F;
-        
+        readonly string[] pieStrings =  { "קוגניטיבי", "בין-אישי", "הכוונה עצמית", "מטה קוגניטיבי", "תוך-אישי", "חושי-תנועתי" };
+        const float percentOfRectSizeFromScreenHeight = 40F;
+        const float percentOfOldSizeForAnimation = 150F;
+        const int pieWidthToTextWidthRatio = 30;
+
+
+        SolidBrush[] brushes;
         int screenCenterX;
         int screenCenterY;
         int rectWidth;
         int rectHeight;
         bool animating;
         System.Timers.Timer tmrAnimationStarter;
-
-
-
         Rectangle[] rects;
         FilledPie[] pies;
 
@@ -42,28 +43,18 @@ namespace Shlomi
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-           
-            
-            animating = false;
-            tmrAnimationStarter = new System.Timers.Timer();
-            tmrAnimationStarter.AutoReset = false;
-            tmrAnimationStarter.Elapsed += TmrAnimationStarter_Elapsed; 
             InitializeProperties();
-            SolidBrush[] brushes = {
-                new SolidBrush(Color.Black),
-                new SolidBrush(Color.Red),
-                new SolidBrush(Color.Blue),
-                new SolidBrush(Color.Green),
-                new SolidBrush(Color.Orange),
-                new SolidBrush(Color.Pink),
-                new SolidBrush(Color.Purple),
-                new SolidBrush(Color.Yellow)
-                
+            CreatePies();
 
-            };
-           rects = new Rectangle[numOfPies];
-             pies = new FilledPie[numOfPies];
+            // MessageBox.Show(pies[0].ToString());
+            pies[0].GetCenter();
+            tmrMainAnimation.Start();
+
+        }
+
+        private void CreatePies()
+        {
+            
             int sweepAngle, startAngle;
             for (int i = 0; i < numOfPies; i++)
             {
@@ -71,34 +62,58 @@ namespace Shlomi
                                          rectWidth, rectHeight);
                 sweepAngle = 360 / numOfPies;
                 startAngle = sweepAngle * i;
-            
-                pies[i] = new FilledPie(brushes[i],rects[i], startAngle, sweepAngle, animationTickRate);
+
+                pies[i] = new FilledPie(brushes[i], rects[i], startAngle, sweepAngle, animationTickRate,pieStrings[i]);
             }
-
-
-            tmrMainAnimation.Interval = animationTickRate;
-            tmrMainAnimation.Start();
-
-
         }
-
-        
 
         private void InitializeProperties()
         {
+            animating = false;
+            tmrAnimationStarter = new System.Timers.Timer();
+            tmrAnimationStarter.AutoReset = false;
+            tmrAnimationStarter.Elapsed += TmrAnimationStarter_Elapsed;
+            tmrMainAnimation.Interval = animationTickRate;
             screenCenterX = ClientSize.Width / 2;
             screenCenterY = ClientSize.Height / 2;
             rectHeight = (int)(ClientSize.Width * (percentOfRectSizeFromScreenHeight / 100));
             rectWidth = rectHeight;
+            brushes = new SolidBrush[] {
+                new SolidBrush(Color.Wheat),
+                new SolidBrush(Color.Red),
+                new SolidBrush(Color.Blue),
+                new SolidBrush(Color.Green),
+                new SolidBrush(Color.Orange),
+                new SolidBrush(Color.Pink),
+                new SolidBrush(Color.Purple),
+                new SolidBrush(Color.Black)
+
+            };
+            rects = new Rectangle[numOfPies];
+            pies = new FilledPie[numOfPies];
+
         }
 
 
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            Font font;  
+            SolidBrush textBrush = new SolidBrush(Color.Black);
             foreach (FilledPie fp in pies)
+            {
                 e.Graphics.FillPie(fp.Brush, fp.Rect, fp.StartAngle, fp.SweepAngle);
-           
+                font = new Font("familyName", fp.Width / pieWidthToTextWidthRatio);
+                PointF pieTextLocation = CalculatePieTextLocation(fp, fp.Text, font, e.Graphics);
+                e.Graphics.DrawString(fp.Text,font ,textBrush, pieTextLocation);
+            }
+        }
+        private PointF CalculatePieTextLocation(FilledPie fp, string text, Font f, Graphics g)
+        {
+            PointF center = fp.GetCenter();
+            SizeF size = g.MeasureString(text, f);
+            return new PointF(center.X - size.Width / 2, center.Y - size.Height / 2);
+            
         }
 
         int clickedPieIndex;
