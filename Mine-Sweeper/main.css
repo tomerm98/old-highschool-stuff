@@ -1,0 +1,44 @@
+td {
+    width: 2vw;
+    height: 2vw;
+    background: gray;
+    text-align: center;
+    color: darkblue;
+    font-size: x-large;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icons {
+    width: 1.7vw;
+    height: 1.7vw;
+}
+
+h1 {
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    font-size: 5em;
+    text-align: center;
+}
+
+#restart {
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 2em;
+    background-color: darkgray;
+    width: 10vw;
+    height: 5vh;
+}
+
+#restart:hover {
+    cursor: pointer;
+}
+
+marquee {
+    margin-bottom: 3vh;
+}
