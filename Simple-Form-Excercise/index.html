@@ -1,51 +1,66 @@
 <html>
 
-    <head>
-            <script>
-                    function validate_form()
-                    {
-                        var form = document.forms["signup"]
-                        var error_message = "Errors:"
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-                        var full_name = form["full_name"].value
-                        var user_name = form["user_name"].value
-                        var email = form["email"].value
-                        var password = form["password"].value
-                        var confirm_password = form["confirm_password"].value
-                        var phone = form["phone"].value
-                        
-                        if (password != confirm_password)
-                            error_message += "\nPasswords dont match"
-                        
-                        if (error_message != "Errors:")
-                         alert(error_message)
-                    }
-                    
-            </script>
-    </head>
-    <body>
-        <h1>Sign Up:</h1>
+    <script>
+        function validate_form() {
+            var form = document.forms["signup"]
+            var error_message = "Errors: \n"
 
-        <form id ="signup">
+            var full_name = form["full_name"].value
+            var user_name = form["user_name"].value
+            var email = form["email"].value
+            var password = form["password"].value
+            var confirm_password = form["confirm_password"].value
+            var phone = form["phone"].value
+            var date = form["date"].value
+            var terms = form["terms"].checked
+            if (!email.includes("@"))
+                error_message += "Invalid Email \n"
+            if (password != confirm_password)
+                error_message += "Passwords dont match \n"
+            if (full_name == "" || user_name == "" || email == "" || password == "" || confirm_password == "" || phone == "" || date == "")
+                error_message += "You must fill in all fields \n"
+            if (!terms)
+                error_message += "You must agree to the terms and conditions "
+            if (error_message != "Errors: \n")
+                alert(error_message)
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Sign Up:</h1>
+
+    <form id="signup" style="margin-left: auto; margin-right: auto;">
+
+        <input type="text" id="full_name" placeholder="Full Name" class="form-control" />
+        <br/>
+        <input type="text" id="user_name" placeholder="User Name" class="form-control" />
+        <br/>
+
+        <input type="text" id="email" placeholder="Email" class="form-control" />
+        <br/>
+        <input type="password" id="password" placeholder="Password" class="form-control" />
+        <br/>
+        <input type="password" id="confirm_password" placeholder="Confirm Password" class="form-control" />
+        <br/>
+        <input type="text" id="phone" placeholder="Phone Number" class="form-control" />
+        <br/>
+        <input type="date" id="date" placeholder="Birth Date" class="form-control" />
+        <br/>
+        <input type="checkbox" id="terms" /> I accept the <a href="lorem.html"> terms and services</a>
+        <br/> <br/>
         
-        <input type="text" id ="full_name" placeholder="Full Name"/>
-         <br/>
-        <input type="text" id ="user_name" placeholder="User Name"/>
-         <br/>
+        <button id="submit" onclick="validate_form()">Submit</button>
 
-        <input type="text" id ="email" placeholder="Email"/>
-        <br/> 
-        <input type="password" id ="password" placeholder="Password"/>
-        <br/> 
-        <input type="password" id ="confirm_password" placeholder="Confirm Password"/>
-        <br/> 
-        <input type="text" id ="phone" placeholder="Phone Number"/>
-        <br/>   
-        <input type="date" id ="date" placeholder="Birth Date"/>
-        <br/>
-        <input type="checkbox" id ="terms"/> I accept the <a href="lorem.html"> terms and services</a>
-        <br/>
-          <button id = "submit" onclick="validate_form()">Submit</button>  
-        </form>
-    </body>
+    </form>
+</body>
+
 </html>
