@@ -1,0 +1,47 @@
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\ApplicationInsights.config
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\csc.exe
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\vbc.exe
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\VBCSCompiler.exe
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\The Turing Game.dll.config
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\The Turing Game.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\The Turing Game.pdb
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.Web.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.Web.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\obj\Debug\The Turing Game.csprojResolveAssemblyReference.cache
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\obj\Debug\The Turing Game.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\obj\Debug\The Turing Game.pdb
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.Owin.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.Owin.Security.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Newtonsoft.Json.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Owin.dll
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.Owin.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Microsoft.Owin.Security.xml
+C:\Users\Tomer\Documents\GitHub\SchoolWeb\The Turing Game\The Turing Game\bin\Newtonsoft.Json.xml
