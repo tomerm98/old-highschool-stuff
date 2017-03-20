@@ -8,10 +8,15 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
-        $("#a").css("border", "3px solid red");
+        $(document).ready(function () {
+            var chatHub = $.connetion.chatHub;
+            registerClientMethods(chatHub);
+            $.connection.hub.
+        });
+      
     </script>
 </head>
 <body>
-    <h1 id="a">hello world</h1>
+    <h1 id="a"><%=test %></h1>
 </body>
 </html>
