@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.tomer.gravitilt.FinishedRunActivity">
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Speed Run Finished!"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/tvTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="50dp"
+        android:text="Your Time:"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        android:textStyle="normal|bold"
+        android:layout_alignBaseline="@+id/tvTimeTitle"
+        android:layout_toRightOf="@+id/tvTimeTitle"
+        android:layout_marginLeft="150dp"/>
+
+
+    <EditText
+        android:id="@+id/etName"
+        android:hint="Enter Your Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="normal|bold"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tvTimeTitle"
+        android:maxLength="25"
+        android:layout_marginTop="50dp"/>
+    <Button
+        android:text="Submit"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/btnSubmit"
+        android:layout_width="200dp"
+        android:layout_below="@+id/etName"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickBtnLevelPractice"
+        android:enabled="false"/>
+
+</RelativeLayout>

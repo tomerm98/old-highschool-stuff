@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.tomer.gravitilt.GameModeActivity">
+    <TextView
+        android:text="Choose Game Mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tvTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:text="Level Practice"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:id="@+id/btnLevelPractice"
+        android:layout_width="200dp"
+        android:layout_below="@+id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickBtnLevelPractice"/>
+    <Button
+        android:text="Speed Run"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:id="@+id/btnSpeedRun"
+        android:layout_width="200dp"
+        android:layout_below="@+id/btnLevelPractice"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickBtnSpeedRun"/>
+</RelativeLayout>

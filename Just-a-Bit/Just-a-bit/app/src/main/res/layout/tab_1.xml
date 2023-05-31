@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.tomer.just_a_bit.MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Just'a Bit"
+            android:gravity="center"
+            android:textSize="50sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:id="@+id/tvTitle"
+            />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginTop="15dp"
+        android:text="X.XX mBTC"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:id="@+id/tvBalanceBTC"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBalanceBTC"
+        android:layout_marginTop="15dp"
+        android:text="X.XX USD"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        android:id="@+id/tvBalanceUSD"
+        />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Send"
+        android:textSize="30sp"
+        android:layout_below="@id/tvBalanceUSD"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/btnSend"/>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Recieve"
+        android:textSize="30sp"
+        android:layout_below="@id/btnSend"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/btnReceive"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Wallet Address:"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:id="@+id/tvWallet"
+        android:layout_below="@id/btnReceive" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvWallet"
+
+        android:text="1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"
+        android:textStyle="bold|italic"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:id="@+id/tvAddress"/>
+</RelativeLayout>

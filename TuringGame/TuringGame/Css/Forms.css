@@ -1,0 +1,41 @@
+﻿
+.FormDivs 
+{
+    color:#d9d9d9;
+    margin: 0 auto; 
+    text-align: left;
+    width:40%;
+    
+    
+}
+
+.FormDivs h3 {font-size: 20px;}
+
+.Inputs 
+{
+    
+    font-size:xx-large; 
+    width: 100%;
+    font-family:Arial;
+    margin-bottom: 15px; 
+    height: 50px;   
+}
+.Inputs:focus {outline:none;}
+
+.Buttons 
+{
+      background-color: #FF6760; 
+      font-size: 20px; 
+      color: white;
+      text-align: center;
+      width: 200px;
+      height: 50px;
+      border: 0px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;      
+ }
+
+.Buttons:focus {outline: none;}
+
+.FormButtons{margin-left: calc(50% - 100px)}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+ <item android:id="@+id/miLow" android:title="Low" />
+ <item android:id="@+id/miMedium" android:title="Medium"/>
+ <item android:id="@+id/miHigh" android:title="High"/>
+</menu>

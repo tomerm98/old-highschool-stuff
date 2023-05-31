@@ -1,0 +1,61 @@
+﻿
+#chat {
+    width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    display: block;
+    border: solid 1px gray;
+}
+
+#title {
+    font-size: 16px;
+    font-weight: bold;
+    color: silver;
+    padding: 8px;
+    background-color: #383838;
+   
+}
+
+#content {
+    height: 500px;
+    word-wrap: break-word;
+    overflow-y: auto;
+    border: solid 1px gray;
+    margin-bottom:20px;
+}
+
+#messageBar {
+  
+    padding: 4px;
+}
+
+#txtMessage {
+   
+    width: 500px;
+    margin-left:20px;
+    margin-bottom:20px
+    
+}
+
+#btnSend {
+    margin-left: 20px;
+    background-color: #383838;
+    border: gray solid 1px;
+    padding: 4px;
+    cursor: pointer;
+    color: silver;
+    width: 80px;
+
+}
+#btnGuessBot {
+    margin-left: 70px;
+    margin-bottom: 20px;
+    
+}
+
+#btnGuessHuman {
+    margin-left: 110px;
+    
+}
+   
